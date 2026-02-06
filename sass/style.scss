@@ -1,6 +1,7 @@
-@import "/reset";
-@import "/nav";
-@import "/about";
-@import "/guidelines";
-@import "/contribute";
-@import "/files";
+@import "global/reset";
+@import "global/theme";
+@import "block/nav";
+@import "block/about";
+@import "block/guidelines";
+@import "block/contribute";
+@import "block/files";

@@ -56,3 +56,119 @@ select {
     scroll-behavior: auto !important;
   }
 }
+:root {
+  --color-primary: #123a5c;
+  --color-primary-alt: #3f5149;
+  --color-secondary: #8b2e23;
+  --color-background: #C8F2E9;
+  --color-text: #1a2833;
+  --color-light: #fff;
+  --color-anchor: #123a5c;
+  --font-family: "Baloo 2", sans-serif;
+  --font-weight-strong: 500;
+  --font-size-h1: 6rem;
+  --font-size-h2: 3rem;
+  --font-size-h3: 2rem;
+  --font-size-h4: 1.35rem;
+  --font-size-text: 1.15rem;
+  --border-radius: 8px;
+}
+
+/* Fix oversized star icon (svg 32x32 inside a span) */
+span > svg[viewBox="0 0 32 32"] {
+  width: 3rem !important;
+  height: 3rem !important;
+  max-width: 3rem !important;
+  max-height: 3rem !important;
+  display: inline-block;
+}
+
+/* Fix oversized GitHub star icon in footer link */
+.page-footer a.link-github > svg[viewBox="0 0 32 32"] {
+  width: 1.25em !important;
+  height: 1.25em !important;
+  display: inline-block;
+  vertical-align: -0.15em;
+}
+
+/* =========================
+   Footer
+   ========================= */
+.page-footer {
+  background-color: var(--color-background);
+  color: var(--color-text);
+  border-top: 1px solid rgba(0, 0, 0, 0.15);
+  padding: 3rem 1.25rem;
+  font-size: 1.05rem;
+  line-height: 1.7;
+}
+
+/* Footer container */
+.page-footer .container {
+  max-width: 72rem;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+/* Improve readability: card-like blocks */
+.page-footer .container > * {
+  background: rgba(255, 255, 255, 0.55);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: var(--border-radius);
+  padding: 1rem 1.25rem;
+}
+
+/* Paragraphs */
+.page-footer p {
+  margin: 0;
+}
+
+/* Lists */
+.page-footer ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.page-footer li {
+  margin: 0.25rem 0;
+}
+
+/* Links */
+.page-footer a {
+  color: var(--color-primary);
+  text-decoration: none;
+}
+
+.page-footer a:hover,
+.page-footer a:focus {
+  text-decoration: underline;
+}
+
+/* GitHub link with star icon */
+.page-footer a.link-github {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: var(--font-weight-strong);
+}
+
+.page-footer a.link-github > svg {
+  width: 1.25em;
+  height: 1.25em;
+  flex: 0 0 auto;
+}
+
+/* =========================
+   Responsive layout
+   ========================= */
+@media (min-width: 48rem) {
+  .page-footer .container {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 1.25rem;
+    align-items: start;
+  }
+}
