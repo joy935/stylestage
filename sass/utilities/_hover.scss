@@ -1,0 +1,52 @@
+/* =========================
+   Utility: Hover animation
+   ========================= */
+
+/* Links */
+a {
+  transition: transform 180ms ease, opacity 180ms ease, text-decoration-color 180ms ease;
+}
+
+a:hover {
+  transform: translateY(-1px);
+}
+
+a:focus-visible {
+  outline: 2px solid var(--color-anchor);
+  outline-offset: 3px;
+}
+
+/* Buttons / CTA (common patterns) */
+button,
+[role="button"],
+input[type="submit"],
+input[type="button"] {
+  transition: transform 180ms ease, opacity 180ms ease;
+}
+
+button:hover,
+[role="button"]:hover,
+input[type="submit"]:hover,
+input[type="button"]:hover {
+  transform: translateY(-1px);
+  opacity: 0.95;
+}
+
+button:active,
+[role="button"]:active,
+input[type="submit"]:active,
+input[type="button"]:active {
+  transform: translateY(0);
+  opacity: 0.9;
+}
+
+/* Card-like blocks (footer panels, articles) */
+.page-footer .container > *,
+article {
+  transition: transform 180ms ease;
+}
+
+.page-footer .container > *:hover,
+article:hover {
+  transform: translateY(-2px);
+}
