@@ -1,0 +1,61 @@
+/* =========================
+   Utility: SVG Fish
+   ========================= */
+
+@function fish-svg($fill) {
+  @return url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 160 90'%3E%3Cpath fill='%23#{$fill}' d='M55 45c0-18 18-33 45-33s45 15 45 33-18 33-45 33-45-15-45-33z'/%3E%3Cpath fill='%23#{$fill}' d='M55 45c-12-14-23-18-33-18 6 9 6 27 0 36 10 0 21-4 33-18z'/%3E%3Ccircle cx='118' cy='38' r='4' fill='%23000'/%3E%3C/svg%3E");
+}
+
+/* Header container = decoration anchor */
+header {
+  position: relative;
+  overflow: hidden;
+}
+
+/* Large fish (top-right) */
+header::before {
+  content: "";
+  position: absolute;
+  top: 1.5rem;
+  right: 2rem;
+  width: 14rem;
+  height: 8rem;
+  background-image: fish-svg("123a5c");
+  background-repeat: no-repeat;
+  background-size: contain;
+  opacity: 0.35;
+  pointer-events: none;
+}
+
+/* Small fish (left-middle) */
+header::after {
+  content: "";
+  position: absolute;
+  top: 7rem;
+  left: 5rem;
+  width: 8rem;
+  height: 4.5rem;
+  background-image: fish-svg("123a5c");
+  background-repeat: no-repeat;
+  background-size: contain;
+  opacity: 0.35;
+  transform: scaleX(-1);
+  pointer-events: none;
+}
+
+/* Responsive */
+@media (max-width: 48rem) {
+  header::before {
+    width: 10rem;
+    height: 6rem;
+    top: 1rem;
+    right: 1rem;
+  }
+
+  header::after {
+    width: 6rem;
+    height: 3.5rem;
+    top: 6rem;
+    left: 1.5rem;
+  }
+}
