@@ -61,9 +61,9 @@ select {
   --color-primary-alt: #3f5149;
   --color-secondary: #8b2e23;
   --color-background: #C8F2E9;
-  --color-text: #1a2833;
+  --color-text: #26423d;
   --color-light: #fff;
-  --color-anchor: #123a5c;
+  --color-anchor: #9a5bd9;
   --font-family: "Baloo 2", sans-serif;
   --font-weight-strong: 500;
   --font-size-h1: 6rem;
@@ -75,25 +75,9 @@ select {
 }
 
 /* Fix oversized star icon (svg 32x32 inside a span) */
-span > svg[viewBox="0 0 32 32"] {
-  width: 3rem !important;
-  height: 3rem !important;
-  max-width: 3rem !important;
-  max-height: 3rem !important;
-  display: inline-block;
-}
-
-/* Fix oversized GitHub star icon in footer link */
-.page-footer a.link-github > svg[viewBox="0 0 32 32"] {
-  width: 1.25em !important;
-  height: 1.25em !important;
-  display: inline-block;
-  vertical-align: -0.15em;
-}
-
 /* =========================
-   Footer
-   ========================= */
+    Footer
+========================= */
 .page-footer {
   background-color: var(--color-background);
   color: var(--color-text);
@@ -162,8 +146,8 @@ span > svg[viewBox="0 0 32 32"] {
 }
 
 /* =========================
-   Responsive layout
-   ========================= */
+Responsive layout
+========================= */
 @media (min-width: 48rem) {
   .page-footer .container {
     display: grid;
@@ -172,6 +156,12 @@ span > svg[viewBox="0 0 32 32"] {
     align-items: start;
   }
 }
+header a.link-github svg {
+  width: 1.25em;
+  height: 1.25em;
+  flex: 0 0 auto;
+}
+
 /* =========================
    Utility: SVG Fish
    ========================= */
