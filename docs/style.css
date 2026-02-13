@@ -1,3 +1,32 @@
+@import url("https://fonts.googleapis.com/css2?family=Lobster+Two:wght@400;700&family=Source+Sans+3:wght@400;600;700&display=swap");
+body {
+  background: var(--color-background);
+  color: var(--color-body);
+  font-family: var(--font-body);
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-heading);
+  font-weight: var(--font-weight-strong);
+  letter-spacing: 0.03em;
+  margin: 0;
+}
+
+a {
+  color: var(--color-anchor);
+  text-decoration: none;
+}
+
+a:hover, a:focus {
+  text-decoration: underline;
+}
+
+.container {
+  max-width: 72rem;
+  margin-inline: auto;
+  padding-inline: 1.25rem;
+}
+
 /*
  * [Modified] Modern CSS Reset
  * @link https://github.com/hankchizljaw/modern-css-reset
@@ -61,10 +90,11 @@ select {
   --color-primary-alt: #3f5149;
   --color-secondary: #8b2e23;
   --color-background: #C8F2E9;
-  --color-text: #1a2833;
+  --color-text: #26423d;
   --color-light: #fff;
-  --color-anchor: #123a5c;
-  --font-family: "Baloo 2", sans-serif;
+  --color-anchor: #9a5bd9;
+  --font-heading: Lobster Two, cursive, sans-serif;
+  --font-family: Source Sans 3, sans-serif;
   --font-weight-strong: 500;
   --font-size-h1: 6rem;
   --font-size-h2: 3rem;
@@ -74,26 +104,9 @@ select {
   --border-radius: 8px;
 }
 
-/* Fix oversized star icon (svg 32x32 inside a span) */
-span > svg[viewBox="0 0 32 32"] {
-  width: 3rem !important;
-  height: 3rem !important;
-  max-width: 3rem !important;
-  max-height: 3rem !important;
-  display: inline-block;
-}
-
-/* Fix oversized GitHub star icon in footer link */
-.page-footer a.link-github > svg[viewBox="0 0 32 32"] {
-  width: 1.25em !important;
-  height: 1.25em !important;
-  display: inline-block;
-  vertical-align: -0.15em;
-}
-
 /* =========================
-   Footer
-   ========================= */
+    Footer
+========================= */
 .page-footer {
   background-color: var(--color-background);
   color: var(--color-text);
@@ -162,8 +175,8 @@ span > svg[viewBox="0 0 32 32"] {
 }
 
 /* =========================
-   Responsive layout
-   ========================= */
+Responsive layout
+========================= */
 @media (min-width: 48rem) {
   .page-footer .container {
     display: grid;
@@ -172,8 +185,122 @@ span > svg[viewBox="0 0 32 32"] {
     align-items: start;
   }
 }
+.skip-link {
+  display: none;
+}
+
+header .container {
+  display: grid;
+  grid-template-columns: 1fr auto;
+}
+
+header h1 {
+  font-size: var(--font-size-h1);
+}
+
+header .container h1:after {
+  content: "";
+  display: block;
+  width: clamp(300px, 80%, 700px);
+  height: 5px;
+  background-color: var(--color-anchor);
+}
+
+header h2 {
+  font-size: var(--font-size-h2);
+  grid-column: 1/-1;
+}
+
+header p, header .link-github {
+  grid-column: 2;
+  justify-self: end;
+}
+
+header p a {
+  font-size: var(--font-size-text);
+  color: var(--color-body);
+  text-decoration: none;
+}
+
+header p a:hover {
+  text-decoration: none;
+  color: var(--color-anchor);
+}
+
+header .link-github {
+  display: flex;
+  gap: 0.5em;
+  padding: 0.25em 0.5em;
+  color: var(--color-light);
+  text-decoration: none;
+  font-weight: var(--font-weight-strong);
+  border: 1px solid var(--color-anchor);
+  border-radius: 5px;
+  background-color: var(--color-anchor);
+}
+
+header a.link-github svg {
+  width: 1.25em;
+  height: 1.25em;
+  flex: 0 0 auto;
+  display: block;
+  fill: var(--color-light);
+}
+
+header .link-github:hover {
+  background-color: var(--color-primary);
+  border: 1px solid var(--color-primary);
+}
+
+/* for smaller screens */
+@media (max-width: 600px) {
+  header p, header .link-github {
+    grid-column: 1/-1;
+    justify-self: start;
+  }
+}
+nav {
+  background-color: var(--color-primary);
+  padding: 0.5rem;
+  margin: 2rem 0;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 3rem;
+}
+
+nav li {
+  font-weight: var(--font-weight-strong);
+  font-size: var(--font-size-text);
+}
+
+nav a {
+  color: var(--color-light);
+  text-decoration: none;
+  display: inline-block;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+nav a:hover {
+  text-decoration: none;
+  border-bottom: 3px solid var(--color-anchor);
+  transform: translateY(1px);
+}
+
+/* for smaller screens, stack the nav items vertically */
+@media (max-width: 600px) {
+  nav ul {
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+  }
+}
 /* =========================
-   Utility: SVG Fish
+    Utility: SVG Fish
    ========================= */
 /* Header container = decoration anchor */
 header {

@@ -1,7 +1,13 @@
+@import url("https://fonts.googleapis.com/css2?family=Lobster+Two:wght@400;700&family=Source+Sans+3:wght@400;600;700&display=swap");
+
 $color-primary: #123a5c !default;
 $color-primary-alt: #3f5149!default;
 $color-secondary: #8b2e23 !default;
 $color-background: #C8F2E9 !default;
+$color-body: #26423d !default; // #1a2833?
+$color-anchor: #9a5bd9 !default;
+$font-heading: "Lobster Two", cursive, sans-serif !default;
+$font-body: "Source Sans 3", sans-serif !default;
 
 $brand-colors: (
   primary: $color-primary,
@@ -9,11 +15,6 @@ $brand-colors: (
   secondary: $color-secondary,
 ) !default;
 
-$color-body: scale-color(
-  $color-primary,
-  $lightness: -30%,
-  $saturation: -50%
-) !default;
 $color-gray: mix(#767676, $color-body, 70%) !default;
 
 $colors: map-merge(
@@ -22,6 +23,7 @@ $colors: map-merge(
     background: $color-background,
     text: $color-body,
     light: #fff,
+    anchor: $color-anchor,
   )
 );
 
@@ -33,7 +35,7 @@ $colors: map-merge(
   @return "%23" + str-slice("#{color($color)}", 2, -1);
 }
 
-$link-color: color(primary) !default;
+$link-color: $color-anchor !default;
 $border-radius: 8px !default;
 
 $font-weight-strong: 500 !default;
@@ -57,8 +59,8 @@ $font-sizes: (
     --color-#{$key}: #{$color};
   }
 
-  --color-anchor: #{$link-color};
-  --font-family: "Baloo 2", sans-serif;
+  --font-heading: #{$font-heading};
+  --font-family: #{$font-body};
   --font-weight-strong: #{$font-weight-strong};
 
   @each $key, $size in $font-sizes {
@@ -67,22 +69,3 @@ $font-sizes: (
 
   --border-radius: #{$border-radius};
 }
-
-/* Fix oversized star icon (svg 32x32 inside a span) */
-span > svg[viewBox="0 0 32 32"] {
-  width: 3rem !important;
-  height: 3rem !important;
-  max-width: 3rem !important;
-  max-height: 3rem !important;
-  display: inline-block;
-}
-
-
-/* Fix oversized GitHub star icon in footer link */
-.page-footer a.link-github > svg[viewBox="0 0 32 32"] {
-  width: 1.25em !important;
-  height: 1.25em !important;
-  display: inline-block;
-  vertical-align: -0.15em;
-}
-
