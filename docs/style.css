@@ -1,3 +1,32 @@
+@import url("https://fonts.googleapis.com/css2?family=Lobster+Two:wght@400;700&family=Source+Sans+3:wght@400;600;700&display=swap");
+body {
+  background: var(--color-background);
+  color: var(--color-body);
+  font-family: var(--font-body);
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-heading);
+  font-weight: var(--font-weight-strong);
+  letter-spacing: 0.03em;
+  margin: 0;
+}
+
+a {
+  color: var(--color-anchor);
+  text-decoration: none;
+}
+
+a:hover, a:focus {
+  text-decoration: underline;
+}
+
+.container {
+  max-width: 72rem;
+  margin-inline: auto;
+  padding-inline: 1.25rem;
+}
+
 /*
  * [Modified] Modern CSS Reset
  * @link https://github.com/hankchizljaw/modern-css-reset
@@ -64,7 +93,8 @@ select {
   --color-text: #26423d;
   --color-light: #fff;
   --color-anchor: #9a5bd9;
-  --font-family: "Baloo 2", sans-serif;
+  --font-heading: Lobster Two, cursive, sans-serif;
+  --font-family: Source Sans 3, sans-serif;
   --font-weight-strong: 500;
   --font-size-h1: 6rem;
   --font-size-h2: 3rem;
@@ -74,7 +104,6 @@ select {
   --border-radius: 8px;
 }
 
-/* Fix oversized star icon (svg 32x32 inside a span) */
 /* =========================
     Footer
 ========================= */
@@ -163,7 +192,7 @@ header a.link-github svg {
 }
 
 /* =========================
-   Utility: SVG Fish
+    Utility: SVG Fish
    ========================= */
 /* Header container = decoration anchor */
 header {
