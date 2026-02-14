@@ -25,3 +25,37 @@ a:hover, a:focus {
     margin-inline: auto;
     padding-inline: 1.25rem;
 }
+
+/* MAIN layout: stack sections with consistent spacing */
+main > .container {
+  display: grid;
+  gap: 1.5rem; /* espace régulier entre About / Guidelines / Contribute */
+}
+
+/* Give articles a little separation without huge gaps */
+main article {
+  margin: 0;
+}
+
+/* The inner section containers should not fight layout */
+article > .container {
+  max-width: 72rem;
+  margin: 0 auto;
+}
+
+
+/* Reusable panel style for all content sections */
+article section.container,
+article footer#files .container {
+  background: rgba(255, 255, 255, 0.75);
+  border: 1px solid rgba(18, 58, 92, 0.18);
+  border-radius: var(--border-radius);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+  padding: 1.5rem 1.75rem;
+}
+
+/* Keep text readable inside wide panels */
+article section.container > *,
+article footer#files .container > * {
+  max-width: 72ch;
+}

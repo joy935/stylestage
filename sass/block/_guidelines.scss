@@ -1,3 +1,51 @@
-#guidelines {
-// Styles for the guidelines section
+/* =========================
+   Guidelines (safe: only this section)
+   ========================= */
+
+#guidelines section.container {
+  background: rgba(255, 255, 255, 0.75);
+  border: 1px solid rgba(18, 58, 92, 0.18);
+  border-radius: var(--border-radius);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+  padding: 1.5rem 1.75rem;
+}
+
+/* Keep text readable inside the wide container */
+#guidelines section.container > * {
+  max-width: 72ch;
+}
+
+#guidelines h2 {
+  font-size: var(--font-size-h2);
+  margin: 0 0 0.75rem;
+}
+
+#guidelines h3 {
+  font-size: var(--font-size-h3);
+  margin: 1.25rem 0 0.75rem;
+}
+
+#guidelines p {
+  margin: 0 0 1rem;
+  line-height: 1.75;
+}
+
+#guidelines p:last-of-type {
+  margin-bottom: 0;
+}
+
+/* Button-like link */
+#guidelines .link-guidelines {
+  display: inline-block;
+  margin-top: 0.75rem;
+  padding: 0.65rem 1rem;
+  border-radius: var(--border-radius);
+  border: 1px solid rgba(18, 58, 92, 0.25);
+  background: rgba(255, 255, 255, 0.9);
+  text-decoration: none;
+}
+
+#guidelines .link-guidelines:hover,
+#guidelines .link-guidelines:focus {
+  text-decoration: none;
 }
