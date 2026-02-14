@@ -1,3 +1,67 @@
-#contribute {
-// Styles for the contribute section
+/* =========================
+   Contribute (safe: only this section)
+   ========================= */
+
+#contribute section.container {
+  background: rgba(255, 255, 255, 0.75);
+  border: 1px solid rgba(18, 58, 92, 0.18);
+  border-radius: var(--border-radius);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+  padding: 1.5rem 1.75rem;
+  margin-bottom: 1.25rem;
+  display: grid;
+  justify-content: center;
+}
+
+/*#contribute section.container > * {
+  max-width: 72ch;
+}*/
+
+#contribute h2 {
+  font-size: var(--font-size-h2);
+  margin: 0 0 0.75rem;
+}
+
+#contribute h3 {
+  font-size: var(--font-size-h3);
+  margin: 0 0 0.75rem;
+}
+
+#contribute p {
+  margin: 0 0 1rem;
+  line-height: 1.75;
+}
+
+#contribute p:last-child {
+  margin-bottom: 0;
+}
+
+/* Steps list */
+#contribute ol {
+  margin: 0.75rem 0 0;
+  padding-left: 1.25rem;
+}
+
+#contribute li {
+  margin: 0.5rem 0;
+  line-height: 1.65;
+}
+
+/* Files footer inside contribute */
+#contribute #files .container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem 1rem;
+  align-items: center;
+
+  background: rgba(255, 255, 255, 0.75);
+  border: 1px solid rgba(18, 58, 92, 0.18);
+  border-radius: var(--border-radius);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+  padding: 1.25rem 1.5rem;
+}
+
+#contribute #files h3 {
+  flex: 1 1 100%;
+  margin: 0 0 0.5rem;
 }
