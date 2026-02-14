@@ -1,3 +1,167 @@
-#files {
-  // Styles for the files section
+/* =========================
+   Modern list treatments
+   - About spotlight list => chips
+   - Contribute steps => numbered cards
+   ========================= */
+
+/* About > Modern CSS Under the Spotlight */
+main .container > article#about > section.container:nth-of-type(2) {
+  --accent: #7c3aed;
+}
+
+main .container > article#about > section.container:nth-of-type(2) ul {
+  list-style: none;
+  padding-left: 0;
+  margin: 1rem 0 0;
+
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+main .container > article#about > section.container:nth-of-type(2) ul li {
+  padding: 0.5rem 0.85rem;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.78);
+  border: 1px solid rgba(124, 58, 237, 0.25);
+  box-shadow: 0 10px 22px rgba(2, 6, 23, 0.08);
+  line-height: 1.2;
+}
+
+/* Contribute > Steps to Contribute */
+main .container > article#contribute > section.container:nth-of-type(2) {
+  --accent: #16a34a;
+}
+
+main .container > article#contribute > section.container:nth-of-type(2) ol {
+  list-style: none;
+  padding-left: 0;
+  margin: 1rem 0 0;
+
+  counter-reset: steps;
+  display: grid;
+  gap: 0.85rem;
+}
+
+main .container > article#contribute > section.container:nth-of-type(2) ol > li {
+  counter-increment: steps;
+  position: relative;
+
+  padding: 1rem 1rem 1rem 3.4rem;
+  border-radius: 18px;
+
+  background: rgba(255, 255, 255, 0.62);
+  border: 1px solid rgba(22, 163, 74, 0.20);
+  box-shadow: 0 12px 30px rgba(2, 6, 23, 0.10);
+}
+
+main .container > article#contribute > section.container:nth-of-type(2) ol > li::before {
+  content: counter(steps);
+  position: absolute;
+  left: 1rem;
+  top: 1rem;
+
+  width: 1.9rem;
+  height: 1.9rem;
+  border-radius: 999px;
+  display: grid;
+  place-items: center;
+
+  background: rgba(22, 163, 74, 0.95);
+  color: #fff;
+  font-weight: 800;
+  line-height: 1;
+}
+
+/* =========================
+   Source Files (footer#files) as modern CTA block
+   ========================= */
+
+#contribute footer#files .container {
+  --accent: #2563eb; /* blue */
+
+  margin-top: 1.25rem;
+  padding: 1.5rem 1.75rem;
+
+  background: rgba(255, 255, 255, 0.62);
+  border: 1px solid rgba(15, 23, 42, 0.12);
+  border-radius: 18px;
+  box-shadow: 0 12px 30px rgba(2, 6, 23, 0.10);
+
+  position: relative;
+}
+
+#contribute footer#files .container::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 14px;
+  bottom: 14px;
+  width: 6px;
+  border-radius: 999px;
+  background: var(--accent);
+  opacity: 0.9;
+}
+
+#contribute footer#files h3 {
+  margin: 0 0 1rem;
+}
+
+/* Make the 3 links look like big buttons */
+#contribute footer#files a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 0.95rem 1.25rem;
+  border-radius: 14px;
+
+  background: rgba(37, 99, 235, 0.95);
+  color: #fff;
+  text-decoration: none;
+  font-weight: 800;
+  letter-spacing: 0.01em;
+
+  box-shadow: 0 14px 30px rgba(2, 6, 23, 0.18);
+  margin-right: 0.9rem;
+  margin-bottom: 0.9rem;
+}
+
+#contribute footer#files a:hover,
+#contribute footer#files a:focus {
+  transform: translateY(-2px);
+}
+
+/* Make Fork link visually secondary */
+#contribute footer#files .link-codepen {
+  background: rgba(255, 255, 255, 0.78);
+  color: #1e40af;
+  border: 1px solid rgba(37, 99, 235, 0.35);
+  box-shadow: 0 12px 26px rgba(2, 6, 23, 0.12);
+}
+
+/* Source Files: layout + better hover */
+#contribute footer#files .container {
+  display: grid;
+  gap: 1rem;
+}
+
+#contribute footer#files .container h3 {
+  grid-column: 1 / -1;
+}
+
+#contribute footer#files .container a {
+  margin: 0; /* override previous margins */
+}
+
+@media (min-width: 700px) {
+  #contribute footer#files .container {
+    grid-template-columns: repeat(3, max-content);
+    align-items: center;
+  }
+}
+
+#contribute footer#files a:hover,
+#contribute footer#files a:focus {
+  filter: brightness(1.05);
 }

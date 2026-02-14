@@ -1,22 +1,31 @@
 /* =========================
-   Guidelines (safe: only this section)
+   Guidelines (modern, coherent)
    ========================= */
 
 #guidelines section.container {
-  background: rgba(255, 255, 255, 0.75);
-  border: 1px solid rgba(18, 58, 92, 0.18);
-  border-radius: var(--border-radius);
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
-  padding: 1.5rem 1.75rem;
-  margin-bottom: 1.25rem;
-  display: grid;
-  justify-content: center;
+  --accent: #0ea5e9; /* sky */
+
+  background: rgba(255, 255, 255, 0.62);
+  border: 1px solid rgba(15, 23, 42, 0.12);
+  border-radius: 18px;
+  box-shadow: 0 12px 30px rgba(2, 6, 23, 0.10);
+  padding: 1.6rem 1.8rem;
+  margin-bottom: 1.35rem;
+
+  position: relative;
 }
 
-/* Keep text readable inside the wide container 
-#guidelines section.container > * {
-  max-width: 72ch;
-}*/
+#guidelines section.container::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 14px;
+  bottom: 14px;
+  width: 6px;
+  border-radius: 999px;
+  background: var(--accent);
+  opacity: 0.9;
+}
 
 #guidelines h2 {
   font-size: var(--font-size-h2);
@@ -33,22 +42,23 @@
   line-height: 1.75;
 }
 
-#guidelines p:last-of-type {
-  margin-bottom: 0;
-}
-
-/* Button-like link */
 #guidelines .link-guidelines {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+
   margin-top: 0.75rem;
-  padding: 0.65rem 1rem;
-  border-radius: var(--border-radius);
-  border: 1px solid rgba(18, 58, 92, 0.25);
-  background: rgba(255, 255, 255, 0.9);
+  padding: 0.75rem 1.1rem;
+  border-radius: 999px;
+
+  border: 1px solid rgba(14, 165, 233, 0.35);
+  background: rgba(255, 255, 255, 0.78);
+  box-shadow: 0 10px 24px rgba(2, 6, 23, 0.10);
+
   text-decoration: none;
 }
 
 #guidelines .link-guidelines:hover,
 #guidelines .link-guidelines:focus {
-  text-decoration: none;
+  transform: translateY(-1px);
 }
