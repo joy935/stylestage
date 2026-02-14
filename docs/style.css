@@ -1,3 +1,4 @@
+@charset "UTF-8";
 @import url("https://fonts.googleapis.com/css2?family=Lobster+Two:wght@400;700&family=Source+Sans+3:wght@400;600;700&display=swap");
 body {
   background: var(--color-background);
@@ -5,7 +6,10 @@ body {
   font-family: var(--font-body);
 }
 
-h1, h2, h3, h4 {
+h1,
+h2,
+h3,
+h4 {
   font-family: var(--font-heading);
   font-weight: var(--font-weight-strong);
   letter-spacing: 0.03em;
@@ -17,7 +21,8 @@ a {
   text-decoration: none;
 }
 
-a:hover, a:focus {
+a:hover,
+a:focus {
   text-decoration: underline;
 }
 
@@ -25,6 +30,123 @@ a:hover, a:focus {
   max-width: 72rem;
   margin-inline: auto;
   padding-inline: 1.25rem;
+}
+
+/* =========================
+   ASIDES: profile floating + featured styles grid
+   ========================= */
+/* 1) Floating "Currently Staged Style" (desktop only) */
+@media (min-width: 1100px) {
+  aside.profile {
+    position: fixed;
+    right: 2rem;
+    top: 9.5rem;
+    width: 320px;
+    z-index: 20;
+  }
+}
+@media (min-width: 1100px) and (min-width: 1100px) {
+  main .container {
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+@media (min-width: 1100px) {
+  aside.profile .container {
+    background: rgba(255, 255, 255, 0.62);
+    border: 1px solid rgba(15, 23, 42, 0.12);
+    border-radius: 18px;
+    box-shadow: 0 18px 45px rgba(2, 6, 23, 0.18);
+    backdrop-filter: blur(8px);
+  }
+}
+/* 2) Featured Styles – like the screenshot */
+aside#styles .container {
+  text-align: center;
+  padding: 2.25rem 1.75rem;
+  background: transparent;
+  /* keep the big open section feel */
+  border: 0;
+  box-shadow: none;
+}
+
+aside#styles h2 {
+  margin: 0 0 1.75rem;
+  font-size: clamp(2rem, 4vw, 3rem);
+}
+
+aside#styles ul.features {
+  list-style: none;
+  padding: 0;
+  margin: 0 auto 1.5rem;
+  display: grid;
+  gap: 1.25rem;
+  justify-content: center;
+}
+
+@media (min-width: 760px) {
+  aside#styles ul.features {
+    grid-template-columns: repeat(3, 220px);
+  }
+}
+aside#styles ul.features li {
+  border-radius: 16px;
+  overflow: hidden;
+  min-height: 150px;
+  background: linear-gradient(135deg, #4f46e5, #2563eb);
+  box-shadow: 0 16px 36px rgba(2, 6, 23, 0.16);
+  display: grid;
+  place-items: center;
+  padding: 1rem;
+}
+
+aside#styles ul.features li > span {
+  display: grid;
+  gap: 0.35rem;
+  padding: 1rem 1.1rem;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.22);
+  border: 1px solid rgba(255, 255, 255, 0.45);
+}
+
+aside#styles ul.features a {
+  color: #fff;
+  font-weight: 900;
+  text-decoration: none;
+}
+
+aside#styles ul.features span span {
+  color: rgba(255, 255, 255, 0.92);
+  font-weight: 700;
+}
+
+/* make each card feel different (simple but effective) */
+aside#styles ul.features li:nth-child(2) {
+  background: linear-gradient(135deg, #2563eb, #0ea5e9);
+}
+
+aside#styles ul.features li:nth-child(3) {
+  background: linear-gradient(135deg, #4338ca, #7c3aed);
+}
+
+/* CTA button centered */
+aside#styles .link-allstyles {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.95rem 1.25rem;
+  border-radius: 14px;
+  background: rgba(37, 99, 235, 0.95);
+  color: #fff;
+  text-decoration: none;
+  font-weight: 900;
+  box-shadow: 0 14px 30px rgba(2, 6, 23, 0.18);
+}
+
+aside#styles .link-allstyles:hover,
+aside#styles .link-allstyles:focus {
+  transform: translateY(-2px);
 }
 
 /*
@@ -105,23 +227,32 @@ select {
 }
 
 /* =========================
-   About (safe: only this section)
+   About (modern, coherent)
    ========================= */
 #about section.container {
-  background: rgba(255, 255, 255, 0.75);
-  border: 1px solid rgba(18, 58, 92, 0.18);
-  border-radius: var(--border-radius);
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
-  padding: 1.5rem 1.75rem;
-  margin-bottom: 1.25rem;
-  display: grid;
-  justify-content: center;
+  --accent: #7c3aed;
+  /* violet */
+  background: rgba(255, 255, 255, 0.62);
+  border: 1px solid rgba(15, 23, 42, 0.12);
+  border-radius: 18px;
+  box-shadow: 0 12px 30px rgba(2, 6, 23, 0.1);
+  padding: 1.6rem 1.8rem;
+  margin-bottom: 1.35rem;
+  position: relative;
 }
 
-/* Keep text readable inside the wide container 
-#about section.container > * {
-  max-width: 72ch;
-}*/
+#about section.container::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 14px;
+  bottom: 14px;
+  width: 6px;
+  border-radius: 999px;
+  background: var(--accent);
+  opacity: 0.9;
+}
+
 #about h2 {
   font-size: var(--font-size-h2);
   margin: 0 0 0.75rem;
@@ -133,30 +264,18 @@ select {
   line-height: 1.75;
 }
 
-#about ul {
-  margin: 0.75rem 0 1rem;
-  padding-left: 1.25rem;
-}
-
-#about li {
-  margin: 0.4rem 0;
-  line-height: 1.6;
-}
-
-/* Blockquote: make it stand out but still calm */
 #about blockquote {
   margin: 1rem 0 1.25rem;
   padding: 1rem 1.25rem;
-  border-left: 4px solid rgba(18, 58, 92, 0.35);
-  background: rgba(255, 255, 255, 0.5);
-  border-radius: var(--border-radius);
+  border-radius: 16px;
+  background: rgba(124, 58, 237, 0.08);
+  border: 1px solid rgba(124, 58, 237, 0.18);
 }
 
 #about blockquote p {
   margin: 0;
 }
 
-/* Links inside About */
 #about a {
   font-weight: var(--font-weight-strong);
   text-decoration: none;
@@ -168,22 +287,32 @@ select {
 }
 
 /* =========================
-   Contribute (safe: only this section)
+   Contribute (modern, coherent)
    ========================= */
 #contribute section.container {
-  background: rgba(255, 255, 255, 0.75);
-  border: 1px solid rgba(18, 58, 92, 0.18);
-  border-radius: var(--border-radius);
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
-  padding: 1.5rem 1.75rem;
-  margin-bottom: 1.25rem;
-  display: grid;
-  justify-content: center;
+  --accent: #16a34a;
+  /* green */
+  background: rgba(255, 255, 255, 0.62);
+  border: 1px solid rgba(15, 23, 42, 0.12);
+  border-radius: 18px;
+  box-shadow: 0 12px 30px rgba(2, 6, 23, 0.1);
+  padding: 1.6rem 1.8rem;
+  margin-bottom: 1.35rem;
+  position: relative;
 }
 
-/*#contribute section.container > * {
-  max-width: 72ch;
-}*/
+#contribute section.container::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 14px;
+  bottom: 14px;
+  width: 6px;
+  border-radius: 999px;
+  background: var(--accent);
+  opacity: 0.9;
+}
+
 #contribute h2 {
   font-size: var(--font-size-h2);
   margin: 0 0 0.75rem;
@@ -203,42 +332,169 @@ select {
   margin-bottom: 0;
 }
 
-/* Steps list */
-#contribute ol {
-  margin: 0.75rem 0 0;
-  padding-left: 1.25rem;
+/* =========================
+   Modern list treatments
+   - About spotlight list => chips
+   - Contribute steps => numbered cards
+   ========================= */
+/* About > Modern CSS Under the Spotlight */
+main .container > article#about > section.container:nth-of-type(2) {
+  --accent: #7c3aed;
 }
 
-#contribute li {
-  margin: 0.5rem 0;
-  line-height: 1.65;
-}
-
-/* Files footer inside contribute */
-#contribute #files .container {
+main .container > article#about > section.container:nth-of-type(2) ul {
+  list-style: none;
+  padding-left: 0;
+  margin: 1rem 0 0;
   display: flex;
   flex-wrap: wrap;
-  gap: 0.75rem 1rem;
-  align-items: center;
-  background: rgba(255, 255, 255, 0.75);
-  border: 1px solid rgba(18, 58, 92, 0.18);
-  border-radius: var(--border-radius);
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
-  padding: 1.25rem 1.5rem;
+  gap: 0.75rem;
 }
 
-#contribute #files h3 {
-  flex: 1 1 100%;
-  margin: 0 0 0.5rem;
+main .container > article#about > section.container:nth-of-type(2) ul li {
+  padding: 0.5rem 0.85rem;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.78);
+  border: 1px solid rgba(124, 58, 237, 0.25);
+  box-shadow: 0 10px 22px rgba(2, 6, 23, 0.08);
+  line-height: 1.2;
+}
+
+/* Contribute > Steps to Contribute */
+main .container > article#contribute > section.container:nth-of-type(2) {
+  --accent: #16a34a;
+}
+
+main .container > article#contribute > section.container:nth-of-type(2) ol {
+  list-style: none;
+  padding-left: 0;
+  margin: 1rem 0 0;
+  counter-reset: steps;
+  display: grid;
+  gap: 0.85rem;
+}
+
+main .container > article#contribute > section.container:nth-of-type(2) ol > li {
+  counter-increment: steps;
+  position: relative;
+  padding: 1rem 1rem 1rem 3.4rem;
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.62);
+  border: 1px solid rgba(22, 163, 74, 0.2);
+  box-shadow: 0 12px 30px rgba(2, 6, 23, 0.1);
+}
+
+main .container > article#contribute > section.container:nth-of-type(2) ol > li::before {
+  content: counter(steps);
+  position: absolute;
+  left: 1rem;
+  top: 1rem;
+  width: 1.9rem;
+  height: 1.9rem;
+  border-radius: 999px;
+  display: grid;
+  place-items: center;
+  background: rgba(22, 163, 74, 0.95);
+  color: #fff;
+  font-weight: 800;
+  line-height: 1;
 }
 
 /* =========================
-    Footer
-========================= */
+   Source Files (footer#files) as modern CTA block
+   ========================= */
+#contribute footer#files .container {
+  --accent: #2563eb;
+  /* blue */
+  margin-top: 1.25rem;
+  padding: 1.5rem 1.75rem;
+  background: rgba(255, 255, 255, 0.62);
+  border: 1px solid rgba(15, 23, 42, 0.12);
+  border-radius: 18px;
+  box-shadow: 0 12px 30px rgba(2, 6, 23, 0.1);
+  position: relative;
+}
+
+#contribute footer#files .container::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 14px;
+  bottom: 14px;
+  width: 6px;
+  border-radius: 999px;
+  background: var(--accent);
+  opacity: 0.9;
+}
+
+#contribute footer#files h3 {
+  margin: 0 0 1rem;
+}
+
+/* Make the 3 links look like big buttons */
+#contribute footer#files a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.95rem 1.25rem;
+  border-radius: 14px;
+  background: rgba(37, 99, 235, 0.95);
+  color: #fff;
+  text-decoration: none;
+  font-weight: 800;
+  letter-spacing: 0.01em;
+  box-shadow: 0 14px 30px rgba(2, 6, 23, 0.18);
+  margin-right: 0.9rem;
+  margin-bottom: 0.9rem;
+}
+
+#contribute footer#files a:hover,
+#contribute footer#files a:focus {
+  transform: translateY(-2px);
+}
+
+/* Make Fork link visually secondary */
+#contribute footer#files .link-codepen {
+  background: rgba(255, 255, 255, 0.78);
+  color: #1e40af;
+  border: 1px solid rgba(37, 99, 235, 0.35);
+  box-shadow: 0 12px 26px rgba(2, 6, 23, 0.12);
+}
+
+/* Source Files: layout + better hover */
+#contribute footer#files .container {
+  display: grid;
+  gap: 1rem;
+}
+
+#contribute footer#files .container h3 {
+  grid-column: 1/-1;
+}
+
+#contribute footer#files .container a {
+  margin: 0;
+  /* override previous margins */
+}
+
+@media (min-width: 700px) {
+  #contribute footer#files .container {
+    grid-template-columns: repeat(3, max-content);
+    align-items: center;
+  }
+}
+#contribute footer#files a:hover,
+#contribute footer#files a:focus {
+  filter: brightness(1.05);
+}
+
+/* =========================
+   Footer (nav-like bar + CTA buttons)
+   ========================= */
 .page-footer {
-  background-color: var(--color-background);
-  color: var(--color-text);
-  border-top: 1px solid rgba(0, 0, 0, 0.15);
+  background: #123a5c;
+  /* même esprit que ta nav */
+  color: #fff;
+  border-top: none;
   padding: 3rem 1.25rem;
   font-size: 1.05rem;
   line-height: 1.7;
@@ -253,34 +509,25 @@ select {
   gap: 1.25rem;
 }
 
-/* Improve readability: card-like blocks */
+/* Remove the "card blocks" look */
 .page-footer .container > * {
-  background: rgba(255, 255, 255, 0.55);
-  border: 1px solid rgba(0, 0, 0, 0.08);
-  border-radius: var(--border-radius);
-  padding: 1rem 1.25rem;
+  background: transparent;
+  border: 0;
+  border-radius: 0;
+  padding: 0;
 }
 
 /* Paragraphs */
 .page-footer p {
   margin: 0;
-}
-
-/* Lists */
-.page-footer ul {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-
-.page-footer li {
-  margin: 0.25rem 0;
+  opacity: 0.95;
 }
 
 /* Links */
 .page-footer a {
-  color: var(--color-primary);
+  color: #fff;
   text-decoration: none;
+  font-weight: 700;
 }
 
 .page-footer a:hover,
@@ -288,49 +535,97 @@ select {
   text-decoration: underline;
 }
 
+/* Buttons row (the UL in footer) */
+.page-footer ul {
+  list-style: none;
+  margin: 0.75rem 0 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.page-footer li {
+  margin: 0;
+}
+
+/* Button-like links inside footer UL */
+.page-footer ul a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.85rem 1.15rem;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.92);
+  color: #123a5c;
+  box-shadow: 0 10px 22px rgba(2, 6, 23, 0.25);
+  text-decoration: none;
+}
+
+.page-footer ul a:hover,
+.page-footer ul a:focus {
+  text-decoration: none;
+  transform: translateY(-2px);
+}
+
 /* GitHub link with star icon */
 .page-footer a.link-github {
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  font-weight: var(--font-weight-strong);
+  font-weight: 800;
 }
 
 .page-footer a.link-github > svg {
   width: 1.25em;
   height: 1.25em;
   flex: 0 0 auto;
+  fill: currentColor;
 }
 
 /* =========================
-Responsive layout
-========================= */
+   Responsive layout
+   ========================= */
 @media (min-width: 48rem) {
   .page-footer .container {
     display: grid;
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-    gap: 1.25rem;
+    grid-template-columns: 1.4fr 1fr 1fr 1fr;
+    gap: 1.5rem;
     align-items: start;
+  }
+
+  /* Keep the buttons list readable */
+  .page-footer ul {
+    margin-top: 0.25rem;
   }
 }
 /* =========================
-   Guidelines (safe: only this section)
+   Guidelines (modern, coherent)
    ========================= */
 #guidelines section.container {
-  background: rgba(255, 255, 255, 0.75);
-  border: 1px solid rgba(18, 58, 92, 0.18);
-  border-radius: var(--border-radius);
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
-  padding: 1.5rem 1.75rem;
-  margin-bottom: 1.25rem;
-  display: grid;
-  justify-content: center;
+  --accent: #0ea5e9;
+  /* sky */
+  background: rgba(255, 255, 255, 0.62);
+  border: 1px solid rgba(15, 23, 42, 0.12);
+  border-radius: 18px;
+  box-shadow: 0 12px 30px rgba(2, 6, 23, 0.1);
+  padding: 1.6rem 1.8rem;
+  margin-bottom: 1.35rem;
+  position: relative;
 }
 
-/* Keep text readable inside the wide container 
-#guidelines section.container > * {
-  max-width: 72ch;
-}*/
+#guidelines section.container::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 14px;
+  bottom: 14px;
+  width: 6px;
+  border-radius: 999px;
+  background: var(--accent);
+  opacity: 0.9;
+}
+
 #guidelines h2 {
   font-size: var(--font-size-h2);
   margin: 0 0 0.75rem;
@@ -346,24 +641,22 @@ Responsive layout
   line-height: 1.75;
 }
 
-#guidelines p:last-of-type {
-  margin-bottom: 0;
-}
-
-/* Button-like link */
 #guidelines .link-guidelines {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
   margin-top: 0.75rem;
-  padding: 0.65rem 1rem;
-  border-radius: var(--border-radius);
-  border: 1px solid rgba(18, 58, 92, 0.25);
-  background: rgba(255, 255, 255, 0.9);
+  padding: 0.75rem 1.1rem;
+  border-radius: 999px;
+  border: 1px solid rgba(14, 165, 233, 0.35);
+  background: rgba(255, 255, 255, 0.78);
+  box-shadow: 0 10px 24px rgba(2, 6, 23, 0.1);
   text-decoration: none;
 }
 
 #guidelines .link-guidelines:hover,
 #guidelines .link-guidelines:focus {
-  text-decoration: none;
+  transform: translateY(-1px);
 }
 
 .skip-link {
