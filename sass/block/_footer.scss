@@ -1,83 +1,118 @@
 /* =========================
-    Footer
-========================= */
+   Footer (nav-like bar + CTA buttons)
+   ========================= */
 
 .page-footer {
-    background-color: var(--color-background);
-    color: var(--color-text);
-    border-top: 1px solid rgba(0, 0, 0, 0.15);
-    padding: 3rem 1.25rem;
-    font-size: 1.05rem;
-    line-height: 1.7;
+  background: #123a5c; /* même esprit que ta nav */
+  color: #fff;
+  border-top: none;
+  padding: 3rem 1.25rem;
+  font-size: 1.05rem;
+  line-height: 1.7;
 }
 
 /* Footer container */
 .page-footer .container {
-    max-width: 72rem;
-    margin: 0 auto;
-    display: flex;
-    flex-direction: column;
-    gap: 1.25rem;
+  max-width: 72rem;
+  margin: 0 auto;
+
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
 }
 
-/* Improve readability: card-like blocks */
+/* Remove the "card blocks" look */
 .page-footer .container > * {
-    background: rgba(255, 255, 255, 0.55);
-    border: 1px solid rgba(0, 0, 0, 0.08);
-    border-radius: var(--border-radius);
-    padding: 1rem 1.25rem;
+  background: transparent;
+  border: 0;
+  border-radius: 0;
+  padding: 0;
 }
 
 /* Paragraphs */
 .page-footer p {
-    margin: 0;
-}
-
-/* Lists */
-.page-footer ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-}
-
-.page-footer li {
-    margin: 0.25rem 0;
+  margin: 0;
+  opacity: 0.95;
 }
 
 /* Links */
 .page-footer a {
-    color: var(--color-primary);
-    text-decoration: none;
+  color: #fff;
+  text-decoration: none;
+  font-weight: 700;
 }
 
 .page-footer a:hover,
 .page-footer a:focus {
-    text-decoration: underline;
+  text-decoration: underline;
+}
+
+/* Buttons row (the UL in footer) */
+.page-footer ul {
+  list-style: none;
+  margin: 0.75rem 0 0;
+  padding: 0;
+
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.page-footer li {
+  margin: 0;
+}
+
+/* Button-like links inside footer UL */
+.page-footer ul a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 0.85rem 1.15rem;
+  border-radius: 12px;
+
+  background: rgba(255, 255, 255, 0.92);
+  color: #123a5c;
+
+  box-shadow: 0 10px 22px rgba(2, 6, 23, 0.25);
+  text-decoration: none;
+}
+
+.page-footer ul a:hover,
+.page-footer ul a:focus {
+  text-decoration: none;
+  transform: translateY(-2px);
 }
 
 /* GitHub link with star icon */
 .page-footer a.link-github {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    font-weight: var(--font-weight-strong);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 800;
 }
 
 .page-footer a.link-github > svg {
-    width: 1.25em;
-    height: 1.25em;
-    flex: 0 0 auto;
+  width: 1.25em;
+  height: 1.25em;
+  flex: 0 0 auto;
+  fill: currentColor;
 }
 
 /* =========================
-Responsive layout
-========================= */
+   Responsive layout
+   ========================= */
 
 @media (min-width: 48rem) {
-    .page-footer .container {
-        display: grid;
-        grid-template-columns: repeat(4, minmax(0, 1fr));
-        gap: 1.25rem;
-        align-items: start;
-    }
+  .page-footer .container {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr 1fr 1fr;
+    gap: 1.5rem;
+    align-items: start;
+  }
+
+  /* Keep the buttons list readable */
+  .page-footer ul {
+    margin-top: 0.25rem;
+  }
 }
