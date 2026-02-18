@@ -34,7 +34,107 @@ a:focus {
    ASIDES: profile floating + featured styles grid
    ========================= */
 
-/* 1) Floating "Currently Staged Style" (desktop only) */
+/* Narrow the main content only on large screens (so fixed profile doesn't squeeze content) */
+@media (min-width: 1100px) {
+  main .container {
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+/* Profile (styled on all screens) */
+aside.profile .container {
+  position: relative;
+
+  border: 2px solid transparent;
+  border-radius: 22px;
+
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.75), rgba(255, 255, 255, 0.35)) padding-box,
+    linear-gradient(90deg, #2563eb, #7c3aed) border-box;
+
+  box-shadow:
+    0 25px 60px rgba(2, 6, 23, 0.18),
+    inset 0 1px 0 rgba(255, 255, 255, 0.45);
+
+  backdrop-filter: blur(10px);
+  padding: 1.35rem 1.45rem;
+}
+
+aside.profile h4 {
+  margin: 0 0 0.9rem;
+  font-size: 1.1rem;
+  letter-spacing: 0.01em;
+}
+
+aside.profile ul {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 1rem;
+  display: grid;
+  gap: 0.6rem;
+}
+
+aside.profile li {
+  display: grid;
+  grid-template-columns: 90px 1fr;
+  gap: 0.75rem;
+  align-items: baseline;
+
+  padding: 0.55rem 0.65rem;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.35);
+  border: 1px solid rgba(15, 23, 42, 0.08);
+}
+
+aside.profile li span:first-child {
+  font-weight: 900;
+  opacity: 0.9;
+}
+
+aside.profile li span:last-child {
+  opacity: 0.95;
+}
+
+aside.profile a[href*="/styles/"] {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 100%;
+  padding: 0.85rem 1rem;
+  border-radius: 14px;
+
+  background: rgba(37, 99, 235, 0.95);
+  color: #fff;
+  text-decoration: none;
+  font-weight: 900;
+
+  box-shadow: 0 14px 30px rgba(2, 6, 23, 0.18);
+  transition: transform 180ms ease, filter 180ms ease;
+}
+
+aside.profile a[href*="/styles/"]:hover,
+aside.profile a[href*="/styles/"]:focus {
+  transform: translateY(-2px);
+  filter: brightness(1.03);
+}
+
+/* Make profile lighter on small screens */
+@media (max-width: 760px) {
+  aside.profile .container {
+    background:
+      linear-gradient(135deg, rgba(255, 255, 255, 0.78), rgba(255, 255, 255, 0.50)) padding-box,
+      linear-gradient(90deg, #2563eb, #7c3aed) border-box;
+  }
+
+  aside.profile li {
+    background: rgba(255, 255, 255, 0.45);
+  }
+}
+
+/* Float only on desktop */
 @media (min-width: 1100px) {
   aside.profile {
     position: fixed;
@@ -43,29 +143,13 @@ a:focus {
     width: 320px;
     z-index: 20;
   }
-
-  @media (min-width: 1100px) {
-    main .container {
-      max-width: 900px;
-      margin-left: auto;
-      margin-right: auto;
-    }
-  }
-
-  aside.profile .container {
-    background: rgba(255, 255, 255, 0.62);
-    border: 1px solid rgba(15, 23, 42, 0.12);
-    border-radius: 18px;
-    box-shadow: 0 18px 45px rgba(2, 6, 23, 0.18);
-    backdrop-filter: blur(8px);
-  }
 }
 
-/* 2) Featured Styles – like the screenshot */
+/* Featured Styles – like the screenshot */
 aside#styles .container {
   text-align: center;
   padding: 2.25rem 1.75rem;
-  background: transparent; /* keep the big open section feel */
+  background: transparent;
   border: 0;
   box-shadow: none;
 }
@@ -79,7 +163,6 @@ aside#styles ul.features {
   list-style: none;
   padding: 0;
   margin: 0 auto 1.5rem;
-
   display: grid;
   gap: 1.25rem;
   justify-content: center;
@@ -126,7 +209,6 @@ aside#styles ul.features span span {
   font-weight: 700;
 }
 
-/* make each card feel different (simple but effective) */
 aside#styles ul.features li:nth-child(2) {
   background: linear-gradient(135deg, #2563eb, #0ea5e9);
 }
@@ -135,7 +217,6 @@ aside#styles ul.features li:nth-child(3) {
   background: linear-gradient(135deg, #4338ca, #7c3aed);
 }
 
-/* CTA button centered */
 aside#styles .link-allstyles {
   display: inline-flex;
   align-items: center;
@@ -150,9 +231,12 @@ aside#styles .link-allstyles {
   font-weight: 900;
 
   box-shadow: 0 14px 30px rgba(2, 6, 23, 0.18);
+  transition: transform 180ms ease, filter 180ms ease;
 }
 
 aside#styles .link-allstyles:hover,
 aside#styles .link-allstyles:focus {
   transform: translateY(-2px);
+  filter: brightness(1.03);
 }
+
