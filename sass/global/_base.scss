@@ -35,7 +35,7 @@ a:focus {
    ========================= */
 
 /* 1) Floating "Currently Staged Style" (desktop only) */
-@media (min-width: 1100px) {
+@media (min-width: 1700px) {
   aside.profile {
     position: fixed;
     right: 2rem;
@@ -44,7 +44,7 @@ a:focus {
     z-index: 20;
   }
 
-  @media (min-width: 1100px) {
+  @media (min-width: 1700px) {
     main .container {
       max-width: 900px;
       margin-left: auto;
