@@ -1,3 +1,6 @@
+@use "sass:color";
+@use "sass:map";
+
 @import url("https://fonts.googleapis.com/css2?family=Lobster+Two:wght@400;700&family=Source+Sans+3:wght@400;600;700&display=swap");
 
 $color-primary: #123a5c !default;
@@ -15,9 +18,9 @@ $brand-colors: (
   secondary: $color-secondary,
 ) !default;
 
-$color-gray: mix(#767676, $color-body, 70%) !default;
+$color-gray: color.mix(#767676, $color-body, 70%) !default;
 
-$colors: map-merge(
+$colors: map.merge(
   $brand-colors,
   (
     background: $color-background,
@@ -28,7 +31,7 @@ $colors: map-merge(
 );
 
 @function color($key) {
-  @return map-get($colors, $key);
+  @return map.get($colors, $key);
 }
 
 @function svgColor($color) {
