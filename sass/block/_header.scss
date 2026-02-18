@@ -1,25 +1,48 @@
 .skip-link {
     display: none;
 }
+
+header {
+    padding-bottom: 10px;
+    margin: 10px;
+    padding: 10px 0;
+}
+
 header .container {
     display: grid;
     grid-template-columns: 1fr auto;
 }
 
 header h1 {
-    font-size: var(--font-size-h1);
+    font-size: clamp(3rem, 7vw, var(--font-size-h1));
+    padding-top: 100px;
 }
-
+header .container h1 {
+    position: relative; 
+    overflow: hidden;
+}
 header .container h1:after {
     content: '';
     display: block;
     width: clamp(300px, 80%, 700px); // adjust if needed
-    height: 5px;
-    background-color: var(--color-anchor); // later make it a wave pattern using an SVG background
+    // height: 5px;
+    background-color: var(--color-anchor);
+    --s: 10px; // size of the wave
+    --b: 6px; // thickness of the line
+    --m: 0.7; // curvature of the wave [0 2]
+    --R: calc(var(--s)*sqrt(var(--m)*var(--m) + 1) + var(--b)/2);
+    height: calc(2*var(--R));
+    width: 100%;
+    --_g: #0000 calc(99% - var(--b)), #000 calc(101% - var(--b)) 99%, #0000 101%;
+    mask:
+        radial-gradient(var(--R) at left 50% bottom calc(-1*var(--m)*var(--s)), var(--_g)) 
+        calc(50% - 2*var(--s)) calc(50% - var(--s)/2 - var(--b)/2)/calc(4*var(--s)) calc(var(--s) + var(--b)) repeat-x,
+        radial-gradient(var(--R) at left 50% top calc(-1*var(--m)*var(--s)),var(--_g)) 
+        50% calc(50% + var(--s)/2 + var(--b)/2)/calc(4*var(--s)) calc(var(--s) + var(--b)) repeat-x;
 }
 
 header h2 {
-    font-size: var(--font-size-h2);
+    font-size: clamp(1.5rem, 5vw, var(--font-size-h2));
     grid-column: 1 / -1;
 }
 
