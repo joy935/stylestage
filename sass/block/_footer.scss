@@ -3,10 +3,14 @@
    ========================= */
 
 .page-footer {
-  background: #123a5c; /* même esprit que ta nav */
+  background: var(--color-primary);
   color: #fff;
   border-top: none;
-  padding: 3rem 1.25rem;
+
+  max-width: 1200px;
+  margin: 2rem auto;
+
+  padding: 3rem 2.25rem;
   font-size: 1.05rem;
   line-height: 1.7;
 }
@@ -37,14 +41,89 @@
 
 /* Links */
 .page-footer a {
-  color: #fff;
+  color: #ffffff;
   text-decoration: none;
   font-weight: 700;
+  position: relative;
+
+  text-shadow:
+    0 0 0 rgba(255, 255, 255, 0),
+    0 0 0 rgba(154, 91, 217, 0);
+
+  transition:
+    text-shadow 180ms ease,
+    opacity 180ms ease,
+    transform 180ms ease;
+}
+
+/* ✨ Ultra-premium inline links (always visible) */
+.page-footer p a {
+  display: inline;
+  position: relative;
+
+  padding: 0.1rem 0.42rem;
+  border-radius: 6px;
+
+  /* Glass base always visible */
+  background: rgba(255, 255, 255, 0.12);
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+
+  /* Thin gradient “ring” */
+  border: 1px solid transparent;
+  background:
+    linear-gradient(rgba(255, 255, 255, 0.12), rgba(255, 255, 255, 0.12))
+      padding-box,
+    linear-gradient(90deg, rgba(255, 255, 255, 0.55), rgba(154, 91, 217, 0.75))
+      border-box;
+
+  /* Subtle glow even at rest */
+  box-shadow:
+    0 0 0 rgba(154, 91, 217, 0),
+    0 6px 16px rgba(2, 6, 23, 0.18);
+
+  transition:
+    transform 160ms ease,
+    box-shadow 180ms ease,
+    filter 180ms ease,
+    background 180ms ease;
+}
+
+.page-footer p a:hover,
+.page-footer p a:focus {
+  transform: translateY(-1px);
+
+  box-shadow:
+    0 0 14px rgba(154, 91, 217, 0.35),
+    0 10px 24px rgba(2, 6, 23, 0.28);
+
+  filter: brightness(1.03);
+}
+
+.page-footer a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -0.15rem;
+  width: 0;
+  height: 2px;
+
+  background: linear-gradient(90deg, #ffffff, #9a5bd9);
+  transition: width 180ms ease;
 }
 
 .page-footer a:hover,
 .page-footer a:focus {
-  text-decoration: underline;
+  opacity: 0.95;
+
+  text-shadow:
+    0 0 6px rgba(255, 255, 255, 0.35),
+    0 0 12px rgba(154, 91, 217, 0.35);
+}
+
+.page-footer a:hover::after,
+.page-footer a:focus::after {
+  width: 100%;
 }
 
 /* Buttons row (the UL in footer) */
@@ -114,5 +193,12 @@
   /* Keep the buttons list readable */
   .page-footer ul {
     margin-top: 0.25rem;
+  }
+
+  @media (max-width: 760px) {
+    .page-footer {
+      margin: 1.2rem;
+      padding: 2rem 1.25rem;
+    }
   }
 }
