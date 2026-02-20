@@ -1,32 +1,7 @@
 /* =========================
    Modern list treatments
-   - About spotlight list => chips
    - Contribute steps => numbered cards
    ========================= */
-
-/* About > Modern CSS Under the Spotlight */
-main .container > article#about > section.container:nth-of-type(2) {
-  --accent: #7c3aed;
-}
-
-main .container > article#about > section.container:nth-of-type(2) ul {
-  list-style: none;
-  padding-left: 0;
-  margin: 1rem 0 0;
-
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.75rem;
-}
-
-main .container > article#about > section.container:nth-of-type(2) ul li {
-  padding: 0.5rem 0.85rem;
-  border-radius: 999px;
-  background: rgba(255, 255, 255, 0.78);
-  border: 1px solid rgba(124, 58, 237, 0.25);
-  box-shadow: 0 10px 22px rgba(2, 6, 23, 0.08);
-  line-height: 1.2;
-}
 
 /* Contribute > Steps to Contribute */
 main .container > article#contribute > section.container:nth-of-type(2) {
