@@ -31,7 +31,7 @@ nav a {
 nav a:hover {
     text-decoration: none;
     border-bottom: 3px solid var(--color-anchor);
-    transform: translateY(1px);
+    transform: translateY(3px);
 }
 
 /* for smaller screens, stack the nav items vertically */
