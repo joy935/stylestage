@@ -1,12 +1,16 @@
 @use "global/base";
 @use "global/reset";
 @use "global/theme";
-@use "block/about";
-@use "block/contribute";
-@use "block/files";
-@use "block/footer";
-@use "block/guidelines";
+
 @use "block/header";
 @use "block/nav";
+@use "block/footer";
+
+@use "compo/about";
+@use "compo/contribute";
+@use "compo/files";
+@use "compo/guidelines";
+
 @use "utilities/fish";
 @use "utilities/hover";
+@use "utilities/wave";

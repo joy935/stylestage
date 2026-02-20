@@ -44,6 +44,7 @@ header .container h1:after {
 header h2 {
     font-size: clamp(1.5rem, 5vw, var(--font-size-h2));
     grid-column: 1 / -1;
+    color: var(--color-primary);
 }
 
 header p, header .link-github {
