@@ -1,15 +1,17 @@
+/* sass/utilities/_fish.scss */
+
 /* =========================
     Utility: SVG Fish
    ========================= */
 
 @function fish-svg($fill) {
-  @return url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='25 5 130 80'%3E%3Cpath fill='%23#{$fill}' d='M55 45c0-18 18-33 45-33s45 15 45 33-18 33-45 33-45-15-45-33z'/%3E%3Cpath fill='%23#{$fill}' d='M55 45c-12-14-23-18-33-18 6 9 6 27 0 36 10 0 21-4 33-18z'/%3E%3Ccircle cx='118' cy='38' r='4' fill='%23000'/%3E%3C/svg%3E");
+  // IMPORTANT: keep full drawing area (goes to x=100), no cropping
+  @return url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 60'%3E%3Cpath fill='%23#{$fill}' d='M30 30c0-14 14-25 35-25s35 11 35 25-14 25-35 25-35-11-35-25z'/%3E%3Cpath fill='%23#{$fill}' d='M30 30c-10-11-19-14-27-14 5 7 5 21 0 28 8 0 17-3 27-14z'/%3E%3Ccircle cx='72' cy='24' r='3' fill='%23000'/%3E%3C/svg%3E");
 }
 
 /* Header container = decoration anchor */
-header .container{
+header .container {
   position: relative;
-  display: grid;
   overflow: hidden;
   padding: 10px;
 }
@@ -18,13 +20,19 @@ header .container{
 header .container::before {
   content: "";
   position: absolute;
-  right: 0rem;
+  top: 0;
+  right: 0;
+
   width: clamp(30rem, 35vw, 40rem);
-  height: clamp(10rem, 13vw, 15rem);
-  background-image: fish-svg("123a5c");
+  aspect-ratio: 5 / 3; /* matches viewBox 100x60 */
+  height: auto;
+
+  background-image: fish-svg("3f6f8c");
   background-repeat: no-repeat;
   background-size: contain;
-  opacity: 0.35;
+  background-position: right center;
+
+  opacity: 0.30;
   pointer-events: none;
 }
 
@@ -32,14 +40,18 @@ header .container::before {
 header .container::after {
   content: "";
   position: absolute;
-  top: 22rem;
+  bottom: 1.25rem;
   left: 5rem;
+
   width: 8rem;
-  height: 4.5rem;
-  background-image: fish-svg("123a5c");
+  height: 4.8rem;
+
+  background-image: fish-svg("3f6f8c");
   background-repeat: no-repeat;
   background-size: contain;
-  opacity: 0.35;
+  background-position: left center;
+
+  opacity: 0.40;
   transform: scaleX(-1);
   pointer-events: none;
 }
@@ -52,7 +64,7 @@ header .container::after {
 }
 
 @media (max-width: 1140px) {
-      header .container::after {
+  header .container::after {
     display: none;
   }
 }

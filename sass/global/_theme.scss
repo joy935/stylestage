@@ -1,16 +1,17 @@
 @use "sass:color";
 @use "sass:map";
 
-@import url("https://fonts.googleapis.com/css2?family=Lobster+Two:wght@400;700&family=Source+Sans+3:wght@400;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Lobster+Two:wght@400;700&family=Quicksand:wght@400;500;600;700&display=swap");
+
+$font-heading: "Lobster Two", cursive, sans-serif !default;
+$font-body: "Quicksand", sans-serif !default;
 
 $color-primary: #123a5c !default;
-$color-primary-alt: #3f5149!default;
+$color-primary-alt: #3f5149 !default;
 $color-secondary: #8b2e23 !default;
-$color-background: #C8F2E9 !default;
-$color-body: #26423d !default; // #1a2833?
+$color-background: #c8f2e9 !default;
+$color-body: #26423d !default;
 $color-anchor: #9a5bd9 !default;
-$font-heading: "Lobster Two", cursive, sans-serif !default;
-$font-body: "Source Sans 3", sans-serif !default;
 
 $brand-colors: (
   primary: $color-primary,
@@ -61,6 +62,8 @@ $font-sizes: (
   @each $key, $color in $colors {
     --color-#{$key}: #{$color};
   }
+
+  --color-decoration-soft: rgba(255, 255, 255, 0.25);
 
   --font-heading: #{$font-heading};
   --font-family: #{$font-body};
