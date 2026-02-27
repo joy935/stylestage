@@ -689,9 +689,7 @@ nav a:hover {
 
 /* Button-like link (Review full guidelines) in same “About-ish” style */
 #guidelines .link-guidelines {
-  display: block;
-  width: fit-content;
-  margin: 1.5rem auto 0;
+  display: inline-flex;
   align-items: center;
   gap: 0.5rem;
   margin-top: 0.75rem;
