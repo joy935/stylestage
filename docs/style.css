@@ -34,7 +34,6 @@ h4 {
   font-weight: var(--font-weight-strong);
   color: var(--color-primary);
   letter-spacing: 0.03em;
-  margin: 0;
 }
 
 h2 {
@@ -42,7 +41,6 @@ h2 {
   font-weight: var(--font-weight-strong);
   color: var(--color-secondary);
   letter-spacing: 0.03em;
-  margin: 0;
 }
 
 a {
@@ -56,7 +54,7 @@ a:focus {
 }
 
 .container {
-  max-width: 72rem;
+  max-width: 70rem;
   margin-inline: auto;
   padding-inline: 1.25rem;
 }
@@ -145,25 +143,11 @@ header .container h1 {
   overflow: hidden;
 }
 
-header .container h1:after {
-  content: "";
-  display: block;
-  width: clamp(300px, 80%, 700px);
-  background-color: var(--color-anchor);
-  --s: 10px;
-  --b: 6px;
-  --m: 0.7;
-  --R: calc(var(--s) * sqrt(var(--m) * var(--m) + 1) + var(--b)/2);
-  height: calc(2 * var(--R));
-  width: 100%;
-  --_g: #0000 calc(99% - var(--b)), #000 calc(101% - var(--b)) 99%, #0000 101%;
-  mask: radial-gradient(var(--R) at left 50% bottom calc(-1 * var(--m) * var(--s)), var(--_g)) calc(50% - 2 * var(--s)) calc(50% - var(--s) / 2 - var(--b) / 2)/calc(4 * var(--s)) calc(var(--s) + var(--b)) repeat-x, radial-gradient(var(--R) at left 50% top calc(-1 * var(--m) * var(--s)), var(--_g)) 50% calc(50% + var(--s) / 2 + var(--b) / 2)/calc(4 * var(--s)) calc(var(--s) + var(--b)) repeat-x;
-}
-
 header h2 {
   font-size: clamp(1.5rem, 5vw, var(--font-size-h2));
   grid-column: 1/-1;
   color: var(--color-primary);
+  text-align: left;
 }
 
 header p,
@@ -211,7 +195,7 @@ header .link-github:hover {
 /* for smaller screens */
 @media (max-width: 600px) {
   header p,
-header .link-github {
+  header .link-github {
     grid-column: 1/-1;
     justify-self: start;
   }
@@ -411,7 +395,6 @@ nav a:hover {
     gap: 1.5rem;
     align-items: start;
   }
-
   /* Keep the buttons list readable */
   .page-footer ul {
     margin-top: 0.25rem;
@@ -428,8 +411,7 @@ nav a:hover {
 }
 
 #about section.container {
-  --accent: #7c3aed;
-  /* violet */
+  --accent: #7c3aed; /* violet */
   border-radius: 18px;
   padding: 1.6rem 1.8rem;
 }
@@ -446,7 +428,7 @@ nav a:hover {
   height: 50px;
   width: 50px;
   margin-right: 10px;
-  background: radial-gradient(20px 20px at 81% 44%, var(--color-background) 100%, transparent 71%), radial-gradient(20px 20px at 65% 90%, var(--color-secondary) 100%, transparent 71%), radial-gradient(20px 20px at 5% 70%, var(--color-secondary) 100%, transparent 71%);
+  background: radial-gradient(20px 20px at 81% 44%, var(--color-background) 0 19px, transparent 20px), radial-gradient(20px 20px at 68% 90%, var(--color-secondary) 0 19px, transparent 20px), radial-gradient(20px 20px at 15% 70%, var(--color-secondary) 0 19px, transparent 20px);
 }
 
 #about p {
@@ -511,7 +493,6 @@ nav a:hover {
   color: var(--color-light);
 }
 
-/* sass/compo/_contribute.scss */
 #contribute .container {
   position: relative;
 }
@@ -533,7 +514,7 @@ nav a:hover {
   height: 50px;
   width: 50px;
   margin-right: 10px;
-  background: radial-gradient(20px 20px at 81% 44%, var(--color-background) 100%, transparent 71%), radial-gradient(20px 20px at 65% 90%, var(--color-secondary) 100%, transparent 71%), radial-gradient(20px 20px at 5% 70%, var(--color-secondary) 100%, transparent 71%);
+  background: radial-gradient(20px 20px at 81% 44%, var(--color-background) 0 19px, transparent 20px), radial-gradient(20px 20px at 68% 90%, var(--color-secondary) 0 19px, transparent 20px), radial-gradient(20px 20px at 15% 70%, var(--color-secondary) 0 19px, transparent 20px);
 }
 
 #contribute h3 {
@@ -553,6 +534,7 @@ nav a:hover {
 #contribute a {
   font-weight: var(--font-weight-strong);
   text-decoration: none;
+  text-align: center;
 }
 
 #contribute a:hover,
@@ -600,7 +582,6 @@ nav a:hover {
   border-color: var(--color-anchor);
 }
 
-/* sass/compo/_files.scss */
 /* This targets the footer inside #contribute that has id="files" */
 #contribute footer#files .container {
   position: relative;
@@ -622,15 +603,6 @@ nav a:hover {
   justify-self: center;
 }
 
-#contribute footer#files h3::before {
-  display: inline-block;
-  content: "";
-  height: 45px;
-  width: 45px;
-  margin-right: 10px;
-  background: radial-gradient(20px 20px at 81% 44%, var(--color-background) 100%, transparent 71%), radial-gradient(20px 20px at 65% 90%, var(--color-secondary) 100%, transparent 71%), radial-gradient(20px 20px at 5% 70%, var(--color-secondary) 100%, transparent 71%);
-}
-
 #contribute footer#files a {
   display: inline-flex;
   align-items: center;
@@ -644,10 +616,8 @@ nav a:hover {
   box-shadow: 5px 5px 2px rgba(2, 6, 23, 0.1);
   border: 1px solid transparent;
   /* spacing handled by gap */
-  margin-right: 0;
-  /* CHANGED */
-  margin-bottom: 0;
-  /* CHANGED */
+  margin-right: 0; /* CHANGED */
+  margin-bottom: 0; /* CHANGED */
 }
 
 #contribute footer#files a:hover,
@@ -670,13 +640,12 @@ nav a:hover {
   color: var(--color-light);
 }
 
-/* sass/compo/_guidelines.scss */
 #guidelines .container {
   position: relative;
 }
 
 #guidelines section.container {
-  border-radius: 18px;
+  border-radius: 22px;
   padding: 1.6rem 1.8rem;
 }
 
@@ -684,6 +653,7 @@ nav a:hover {
   font-size: var(--font-size-h2);
   margin: 0 0 0.75rem;
   line-height: 1.1;
+  color: var(--color-light);
 }
 
 #guidelines h2::before {
@@ -692,17 +662,19 @@ nav a:hover {
   height: 50px;
   width: 50px;
   margin-right: 10px;
-  background: radial-gradient(20px 20px at 81% 44%, var(--color-background) 100%, transparent 71%), radial-gradient(20px 20px at 65% 90%, var(--color-secondary) 100%, transparent 71%), radial-gradient(20px 20px at 5% 70%, var(--color-secondary) 100%, transparent 71%);
+  background: radial-gradient(20px 20px at 81% 44%, #1a476d 0 19px, transparent 20px), radial-gradient(20px 20px at 68% 90%, var(--color-light) 0 19px, transparent 20px), radial-gradient(20px 20px at 15% 70%, var(--color-light) 0 19px, transparent 20px);
 }
 
 #guidelines h3 {
   font-size: var(--font-size-h3);
   margin: 1.25rem 0 0.75rem;
+  color: var(--color-light);
 }
 
 #guidelines p {
   margin: 0 0 1rem;
   line-height: 1.75;
+  color: var(--color-light);
 }
 
 #guidelines a {
@@ -736,6 +708,47 @@ nav a:hover {
   text-decoration: none;
 }
 
+/* dark background behind the guidelines section */
+#guidelines {
+  position: relative;
+  z-index: 0;
+  background: transparent;
+}
+
+article#guidelines::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100vw;
+  top: -30px;
+  bottom: -30px;
+  background-color: var(--color-primary);
+  z-index: -1;
+  /* fish decoration */
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 60'%3E%3Cpath fill='%233f6f8c' d='M30 30c0-14 14-25 35-25s35 11 35 25-14 25-35 25-35-11-35-25z'/%3E%3Cpath fill='%233f6f8c' d='M30 30c-10-11-19-14-27-14 5 7 5 21 0 28 8 0 17-3 27-14z'/%3E%3Ccircle cx='72' cy='24' r='3' fill='%23000'/%3E%3C/svg%3E"), url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 60'%3E%3Cpath fill='%233f6f8c' d='M30 30c0-14 14-25 35-25s35 11 35 25-14 25-35 25-35-11-35-25z'/%3E%3Cpath fill='%233f6f8c' d='M30 30c-10-11-19-14-27-14 5 7 5 21 0 28 8 0 17-3 27-14z'/%3E%3Ccircle cx='72' cy='24' r='3' fill='%23000'/%3E%3C/svg%3E"), url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 60'%3E%3Cpath fill='%233f6f8c' d='M30 30c0-14 14-25 35-25s35 11 35 25-14 25-35 25-35-11-35-25z'/%3E%3Cpath fill='%233f6f8c' d='M30 30c-10-11-19-14-27-14 5 7 5 21 0 28 8 0 17-3 27-14z'/%3E%3Ccircle cx='72' cy='24' r='3' fill='%23000'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-size: 150px auto, 80px auto, 130px auto;
+  background-position: 5% 20%, 8% 80%, 90% 30%;
+}
+
+/* another background layer with box shadow*/
+#guidelines section.container {
+  position: relative;
+  z-index: 1;
+}
+
+#guidelines section.container {
+  background: linear-gradient(to bottom, rgba(26, 71, 109, 0.82), rgba(22, 63, 99, 0.82));
+  border: 1px solid rgba(18, 58, 92, 0.12);
+  box-shadow: 0 26px 60px rgba(0, 0, 0, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.65);
+}
+
+@media (max-width: 600px) {
+  article#guidelines::before {
+    background: none;
+  }
+}
 /* sass/compo/_profile.scss */
 /* =========================
    Component: Currently Staged Style (profile)
@@ -758,8 +771,7 @@ aside.profile > .container {
   padding: 1.25rem 1.25rem;
   text-align: center;
   /* Make it feel like a component (not full container width) */
-  max-width: 60rem;
-  /* narrower than global .container (72rem) */
+  max-width: 60rem; /* narrower than global .container (72rem) */
   margin-inline: auto;
 }
 
@@ -828,7 +840,6 @@ aside.profile a[href*="/styles/"]:focus {
     padding: 1.1rem 1rem;
     text-align: left;
   }
-
   aside.profile ul {
     justify-content: flex-start;
     gap: 0.65rem 0.9rem;
@@ -938,8 +949,7 @@ header .container::before {
   top: 0;
   right: 0;
   width: clamp(30rem, 35vw, 40rem);
-  aspect-ratio: 5/3;
-  /* matches viewBox 100x60 */
+  aspect-ratio: 5/3; /* matches viewBox 100x60 */
   height: auto;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 60'%3E%3Cpath fill='%233f6f8c' d='M30 30c0-14 14-25 35-25s35 11 35 25-14 25-35 25-35-11-35-25z'/%3E%3Cpath fill='%233f6f8c' d='M30 30c-10-11-19-14-27-14 5 7 5 21 0 28 8 0 17-3 27-14z'/%3E%3Ccircle cx='72' cy='24' r='3' fill='%23000'/%3E%3C/svg%3E");
   background-repeat: no-repeat;
@@ -1015,12 +1025,6 @@ article,
   transition: background-color 180ms ease, box-shadow 180ms ease, filter 180ms ease;
 }
 
-article:hover,
-.page-footer .container > *:hover {
-  filter: brightness(1.02);
-  box-shadow: 0 6px 18px rgba(18, 58, 92, 0.12);
-}
-
 main article section.container {
   font-family: var(--font-family);
   font-size: 1.05rem;
@@ -1030,7 +1034,10 @@ main article section.container {
   border-radius: 18px;
   padding: 1.6rem 1.8rem;
   margin-bottom: 1.35rem;
-  background: radial-gradient(18px 18px at 12% 22%, rgba(255, 255, 255, 0.22), rgba(255, 255, 255, 0) 70%), radial-gradient(24px 24px at 82% 30%, rgba(255, 255, 255, 0.16), rgba(255, 255, 255, 0) 70%), radial-gradient(14px 14px at 65% 78%, rgba(255, 255, 255, 0.18), rgba(255, 255, 255, 0) 70%);
+  /* background:
+    radial-gradient(18px 18px at 12% 22%, rgba(255, 255, 255, 0.22), rgba(255, 255, 255, 0) 70%),
+    radial-gradient(24px 24px at 82% 30%, rgba(255, 255, 255, 0.16), rgba(255, 255, 255, 0) 70%),
+    radial-gradient(14px 14px at 65% 78%, rgba(255, 255, 255, 0.18), rgba(255, 255, 255, 0) 70%); */
 }
 
 main article section.container p,

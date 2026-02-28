@@ -37,8 +37,9 @@ article,
   transition: background-color 180ms ease, box-shadow 180ms ease, filter 180ms ease;
 }
 
-article:hover,
-.page-footer .container > *:hover {
-  filter: brightness(1.02);
-  box-shadow: 0 6px 18px rgba(18, 58, 92, 0.12);
-}
+// article#about:hover,
+// article#contribute:hover,
+// .page-footer .container > *:hover {
+//   filter: brightness(1.02);
+//   box-shadow: 0 6px 18px rgba(18, 58, 92, 0.12);
+// }

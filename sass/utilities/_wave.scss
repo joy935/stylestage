@@ -1,4 +1,4 @@
-@mixin decorative-wave($size) {
+@mixin decorative-wave($size, $color: var(--color-background), $color-wave: var(--color-secondary)) {
     display: inline-block;
     content: "";
     height: $size;
@@ -6,15 +6,17 @@
     margin-right: 10px;
     background:
         radial-gradient(20px 20px at 81% 44%,
-        var(--color-background) 100%,
-        transparent 71%
+        $color 0 19px,
+        transparent 20px
         ),
-        radial-gradient(20px 20px at 65% 90%, 
-        var(--color-secondary) 100%,
-        transparent 71%
+        radial-gradient(20px 20px at 68% 90%, 
+        $color-wave 0 19px,
+        transparent 20px
         ),
-        radial-gradient(20px 20px at 5% 70%,
-        var(--color-secondary) 100%,
-        transparent 71%
+        radial-gradient(20px 20px at 15% 70%,
+        $color-wave 0 19px,
+        transparent 20px
         );
 }
+
+// filter: brightness(1.02);
