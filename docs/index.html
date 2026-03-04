@@ -36,6 +36,9 @@
       </div>
     </header>
     <nav>
+      <button class="nav-toggle" aria-label="Toggle menu">
+    ☰
+  </button>
       <ul>
         <li><a href="#about">About</a></li>
         <li><a href="#guidelines">Guidelines</a></li>
@@ -334,5 +337,14 @@
         </p>
       </div>
     </footer>
+    <script>
+  const toggleButton = document.querySelector('.nav-toggle');
+  const navMenu = document.querySelector('nav ul');
+
+  toggleButton.addEventListener('click', () => {
+    navMenu.classList.toggle('active');
+  });
+</script>
+
   </body>
 </html>
