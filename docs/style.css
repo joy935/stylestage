@@ -1067,7 +1067,6 @@ main article section.container :is(p, li, blockquote) a:focus {
   background: rgba(154, 91, 217, 0.2);
   text-decoration: underline;
 }
-
 /* Hamburger hidden on large screens */
 .nav-toggle {
   display: none;
@@ -1108,4 +1107,20 @@ main article section.container :is(p, li, blockquote) a:focus {
   }
   
 
+}
+
+/* add animation to the fish in the header */
+@keyframes swim {
+  0% {
+    transform: translateX(0) scaleX(1);
+  }
+  50% {
+    transform: translateX(-10px) scaleX(1.05);
+  }
+  100% {
+    transform: translateX(0) scaleX(1);
+  }
+}
+header .container::before {
+  animation: swim 6s ease-in-out infinite;
 }
