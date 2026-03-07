@@ -1,15 +1,28 @@
 /* =========================
    Footer (nav-like bar + CTA buttons)
    ========================= */
-
 .page-footer {
-  background: var(--color-primary);
+  position: relative;
+  z-index: 0;
+  background: transparent;
+  overflow: hidden;
+  padding: 2rem 0 6rem 0;
+}
+.page-footer .container::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100vw;
+  top: 0px;
+  bottom: -30px;
+  z-index: -1;
+
+  background-image: 
+  linear-gradient(to bottom, var(--color-background), var(--color-primary));
+  background-repeat: no-repeat;
+
   color: #fff;
-  border-top: none;
-
-  max-width: 1200px;
-  margin: 2rem auto;
-
   padding: 3rem 2.25rem;
   font-size: 1.05rem;
   line-height: 1.7;
